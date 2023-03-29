@@ -101,7 +101,7 @@ Also, if you create new models, you should import them in `db/migrations/env.py`
 ### Define new methods
 [SQLModel with FastAPI](https://sqlmodel.tiangolo.com/tutorial/fastapi/)
 
-#🧪 Tests
+# 🧪 Tests
 Run tests with coverage
 ```
 python -m pytest -vx --cov=core --cov-report term-missing --cov-fail-under=95
