@@ -1,0 +1,16 @@
+# Database generated in local
+database.db
+
+# Virtual environment in local
+venv
+
+# Environment variables
+devops/*.env
+
+# Testing
+.coverage
+
+# Miscelanea
+__pycache__/
+.idea
+.DS_store
