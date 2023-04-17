@@ -2,7 +2,7 @@ from datetime import datetime, timedelta
 from jose import jwt
 from sqlmodel import SQLModel
 
-from devops.config import settings
+from config import settings
 
 
 class Token(SQLModel):

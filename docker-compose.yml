@@ -1,0 +1,21 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:14
+    restart: always
+    env_file:
+      - ./config/.env
+
+  app:
+    build: .
+    command: ./config/entrypoint.sh
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - .:/code
+    depends_on:
+      - db
+    env_file:
+      - ./config/.env

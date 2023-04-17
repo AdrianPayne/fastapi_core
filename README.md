@@ -1,7 +1,24 @@
 # FastAPI Core
 Core to build a Fastapi API!
 
-## Features
+# Features
+## ORM (SQLModel)
+Using SQLModel to use Pydantic and SQLAlchemist
+
+## Migrations (Alembic)
+To create a new migration file include the new models to the `core/db/models_db`
+
+Migrations file automatically run when Docker run
+
+## Encapsulation (Docker)
+Easy to build and run everywhere, just:
+```
+docker-compose up
+```
+
+## Auth and user model
+
+## Admin 
 - PostgreSQL DB integration
 - ORM using SQLModel
 - Migrations with Alembic
@@ -17,7 +34,7 @@ Create a virtual environment and install the dependencies
 ```
 python3 -m venv venv
 source venv/bin/activate
-cd devops
+cd config
 poetry install
 ```
 
@@ -34,14 +51,9 @@ uvicorn main:app --host 0.0.0.0 --port 8080 --reload
 Check http://127.0.0.1:8080/
 
 ## Using Dockers
-Build
+Build and run
 ```
-docker build -t fastapi_backend_core .
-```
-
-Run
-```
-docker run -p 8080:8080 -it fastapi_backend_core
+docker-compose up
 ```
 
 ## Docs
@@ -75,7 +87,7 @@ Here a cheatsheet to extend docs
 ## Libraries
 Add new libraries (with "add" command, new libraries will be installed too 😀)
 ```
-cd devops
+cd config
 poetry add <package>
 ```
 
@@ -96,7 +108,7 @@ And then, you should refresh your DB with this new migration:
 python -m alembic upgrade head    
 ```
 
-Also, if you create new models, you should import them in `db/migrations/env.py`
+Also, if you create new models, you should import them in `core/db/models_db.py`
 
 ### Define new methods
 [SQLModel with FastAPI](https://sqlmodel.tiangolo.com/tutorial/fastapi/)
@@ -116,20 +128,23 @@ Call to method tearDown for deleting all the created objects in the DB.
 
 # TODO
 ## Core
-- [ ] Terminar service example (endpoints, schemes, httperrors, dependencies)
-- [ ] Autentificacion (Oauth2: access y refresh tokens & level access)
-- [ ] Servicio de usuarios (modelo, endpoints de password reset, CRUD)
-- [ ] Integracion con email client (extender usuario)
-- [ ] Infra DEV (DB, Settings, Migraciones, Factories)
+- [X] Terminar service example (endpoints, schemes, httperrors, dependencies)
+- [X] Infra DEV (Docker, DB Settings, Migrations)
+- [ ] CI 
   
 
-- [ ] CI 
-- [ ] Auth con Google (extender User)
-- [ ] Repository integration (G Storage)
-- [ ] Logs y Debug (Sentry)
+- [ ] Autentificacion (Oauth2: access y refresh tokens & level access)
+- [ ] Servicio de usuarios (modelo, endpoints de password reset, CRUD, Factories)
 - [ ] [Fastapi admin](https://aminalaee.dev/sqladmin/)
+
+
+- [ ] Integracion con email client (extender usuario)
+- [ ] Auth con Google (extender User)
+- [ ] Logs y Debug (Sentry)
 - [ ] Check async is correct
 
 Extra:
 - [ ] Generate TS Client
 - [ ] Cache
+- [ ] Repository integration (G Storage)
+- [ ] MongoDB client

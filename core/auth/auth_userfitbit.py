@@ -2,7 +2,7 @@ from fastapi import Header, HTTPException, status, Depends
 from jose import jwt, JWTError
 from passlib.context import CryptContext
 
-from devops.config import settings
+from config import settings
 from db import get_session
 from services.user_fitbit.models import UserFitbit
 

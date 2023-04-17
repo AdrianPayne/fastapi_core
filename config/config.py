@@ -4,13 +4,9 @@ from pydantic import BaseSettings, HttpUrl
 class SettingsLocal(BaseSettings):
     app_env = "local"
 
-    # CORS
-    cors_samesite = "lax"
-    cors_secure = False
-
     # DB
     database_url: str
-    db_echo = False
+    db_echo = True
 
     # Auth
     # to get a string like this run:
@@ -23,7 +19,7 @@ class SettingsLocal(BaseSettings):
     google_api_key: str
 
     class Config:
-        env_file = "devops/.env"
+        env_file = "config/.env"
 
 
 settings = SettingsLocal()

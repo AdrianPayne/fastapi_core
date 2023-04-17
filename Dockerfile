@@ -1,11 +1,11 @@
-FROM python:3.10
+FROM python:3.11
 
 # System deps:
 RUN pip install poetry
 
 # Copy only requirements to cache them in docker layer
 WORKDIR /code
-COPY devops/poetry.lock devops/pyproject.toml /code/
+COPY config/poetry.lock config/pyproject.toml /code/
 
 # Project initialization:
 RUN poetry config virtualenvs.create false && poetry install --no-interaction --no-ansi
@@ -15,5 +15,5 @@ COPY . /code
 
 # Execute the backend
 EXPOSE 8080
-COPY devops/entrypoint.sh .
+COPY config/entrypoint.sh .
 CMD ./entrypoint.sh

@@ -1,23 +1,14 @@
 from fastapi import HTTPException, FastAPI, Depends
 
-from .models import Hero, Team
+from .models import Hero
 from .schemes import HeroCreate, HeroUpdate, HeroRead
+from core.requests import get_all_request
 
 app = FastAPI()
 
 
-async def get_filters(offset: int = 0, limit: int = 100, order_by: str = None):
-    """ Dependencies with the common parameters for look for in a list """
-    return {
-        "offset": offset,
-        "limit": limit,
-        "order_by":  order_by
-    }
-
-
 @app.get("/hero", response_model=list[HeroRead])
-async def get_all(filters=Depends(get_filters)):
-    # TODO: Limit, offset, ...
+async def get_all(filters=Depends(get_all_request)):
     return Hero.get_all(Hero, **filters)
 
 

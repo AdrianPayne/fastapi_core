@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Run the migrations
 python -m alembic upgrade head
 

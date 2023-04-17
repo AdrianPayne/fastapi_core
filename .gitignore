@@ -5,7 +5,7 @@ database.db
 venv
 
 # Environment variables
-devops/*.env
+config/*.env
 
 # Testing
 .coverage

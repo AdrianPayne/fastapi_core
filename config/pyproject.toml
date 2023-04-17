@@ -2,7 +2,7 @@
 name = "fastapi_core"
 version = "0.1.0"
 description = ""
-authors = ["Adrian <adriansacristancontractor@gmail.com>", "Marina <marina.marint.hernandez@outloook.com>"]
+authors = ["Adrian <adriansacristancontractor@gmail.com>", "Marina <marina.martin.hernandez@outloook.com>"]
 readme = "README.md"
 
 [tool.poetry.dependencies]

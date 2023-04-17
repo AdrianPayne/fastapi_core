@@ -1,7 +1,8 @@
 from sqlmodel import Session, create_engine, SQLModel, select
 
-sqlite_file_name = "database.db"
-sqlite_url = f"sqlite:///{sqlite_file_name}"
+from config import settings
+
+sqlite_url = settings.database_url
 engine = create_engine(sqlite_url)
 
 
